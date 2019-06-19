@@ -24,4 +24,11 @@ func handler(w http.ResponseWriter, r *http.Request) {
 	for k, v := range r.Form {
 		fmt.Println(k, "val: "+strings.Join(v, ""))
 	}
+
+	if username, ok := r.Form["username"]; ok {
+		fmt.Println(username[0])
+	}
+
+	uid := r.Form["uid"]
+	fmt.Fprintf(w, "Name = %s\n", uid)
 }
